@@ -34,7 +34,7 @@ for elm in list:
 list = os.listdir("images_each/")
 for elm in list:
     src = cv.imread("images_each/" + elm)
-    local_threshold(elm, src)
-    canny(elm, src)
+    #local_threshold(elm, src)
+    #canny(elm, src)
 
 

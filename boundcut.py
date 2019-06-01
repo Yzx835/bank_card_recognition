@@ -6,7 +6,7 @@ def nothing(x):
     pass
 
 
-src = cv.imread("test_images/7.jpeg")
+src = cv.imread("test_images/2.jpeg")
 
 
 gray = cv.cvtColor(src, cv.COLOR_RGB2GRAY)
@@ -29,7 +29,7 @@ canny = cv.Canny(blur, 30, 60)
 canny = cv.dilate(canny, None)
 #canny = cv.erode(canny, None)
 
-im, cont, hie = cv.findContours(canny, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
+cont, hie = cv.findContours(canny, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
 
 area = []
 for cnt in cont:
@@ -41,10 +41,10 @@ cont[maxin] = cv.approxPolyDP(cont[maxin], 5, True)
 x, y, w, h = cv.boundingRect(cont[maxin])
 
 
-#cv.drawContours(src, cont, area.index(max(area)), (0,100,0), 2)
+cv.drawContours(src, cont, area.index(max(area)), (0,100,0), 2)
 
 cv.imshow('src', src[y:y+h, x:x+w])
-#cv.imshow('lineal', lineal)
+cv.imshow('lineal', lineal)
 cv.imshow('canny', canny)
 
 

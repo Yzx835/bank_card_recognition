@@ -17,7 +17,7 @@ def local_threshold(image):
 
 '''
 
-src = cv.imread('1.jpeg')
+src = cv.imread('test_images/1.jpeg')
 cv.namedWindow('input_image', cv.WINDOW_NORMAL) #设置为WINDOW_NORMAL可以任意缩放
 cv.imshow('input_image', src)
 
@@ -25,7 +25,7 @@ blur = cv.GaussianBlur(src, (5,5), 0)
 gray = cv.cvtColor(blur, cv.COLOR_RGB2GRAY)
 canny = cv.Canny(gray, 30, 90)
 
-bin, con, hie = cv.findContours(canny, cv.RETR_LIST, cv.CHAIN_APPROX_SIMPLE)
+con, hie = cv.findContours(canny, cv.RETR_LIST, cv.CHAIN_APPROX_SIMPLE)
 temp = np.ones(canny.shape,np.uint8)*255
 cv.drawContours(temp, con, -1, (0,255,0), 3)
 
