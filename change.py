@@ -16,6 +16,7 @@ def canny(name, image):
     blur = cv.GaussianBlur(image, (5, 5), 0)
     gray = cv.cvtColor(blur, cv.COLOR_RGB2GRAY)
     canny = cv.Canny(gray, 30, 90)
+    canny = cv.dilate(canny, None)
     cv.imwrite("images_out2/" + elm, canny)
 
 def cut(count, name, image):
