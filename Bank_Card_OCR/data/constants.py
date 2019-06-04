@@ -1,4 +1,5 @@
 BASE_PATH = "../"
+
 DATA_PATH = BASE_PATH + "data/"
 DATA_LOCATE_CARD_PATH = DATA_PATH + "locate_card/"
 DATA_LOCATE_RAW_PATH = DATA_PATH + "locate_raw/"
@@ -10,3 +11,7 @@ DATA_PROCESS_RAW_PATH = DATA_PATH + "process_raw/"
 RESULT_PATH = BASE_PATH + "result/"
 RESULT_MODEL_RESULT_PATH = RESULT_PATH + "model_result/"
 RESULT_RECOGNIZE_RESULT_PATH = RESULT_PATH + "recognize_result/"
+
+MODEL_PATH = BASE_PATH + "model/"
+MODEL_DATASET_PATH = MODEL_PATH + "dataset/"
+MODEL_NAME = "train_plus-29351"

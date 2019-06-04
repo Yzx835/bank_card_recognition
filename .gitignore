@@ -1,0 +1,8 @@
+**/.idea
+**/.vscode
+**/*.jpg
+**/*.jpeg
+**/*.png
+**/model_result
+**/recognize_result
+**/dataset
