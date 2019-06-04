@@ -1,0 +1,12 @@
+BASE_PATH = "../"
+DATA_PATH = BASE_PATH + "data/"
+DATA_LOCATE_CARD_PATH = DATA_PATH + "locate_card/"
+DATA_LOCATE_RAW_PATH = DATA_PATH + "locate_raw/"
+DATA_LOCATE_RESULT_PATH = DATA_PATH + "locate_result/"
+DATA_PROCESS_EACH_PATH = DATA_PATH + "process_each/"
+DATA_PROCESS_ENLARGE_PATH = DATA_PATH + "process_enlarge/"
+DATA_PROCESS_RAW_PATH = DATA_PATH + "process_raw/"
+
+RESULT_PATH = BASE_PATH + "result/"
+RESULT_MODEL_RESULT_PATH = RESULT_PATH + "model_result/"
+RESULT_RECOGNIZE_RESULT_PATH = RESULT_PATH + "recognize_result/"
