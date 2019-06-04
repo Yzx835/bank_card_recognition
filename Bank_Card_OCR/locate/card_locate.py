@@ -43,7 +43,7 @@ def get_intsec(line1, line2):
         return ((c1 * b2 - c2 * b1) / det), ((a1 * c2 - a2 * c1) / det)
 
 
-def hough_lines(image, name, card_dir):
+def hough_lines(image, name):
     image = loc.resize_as_card(image)
     image_copy = loc.resize_as_card(image)
     image = loc.linear_gray(image)
@@ -120,4 +120,4 @@ def hough_lines(image, name, card_dir):
 
     mat = cv.getPerspectiveTransform(src_points, dst_points)
     image_copy = cv.warpPerspective(image_copy, mat, (loc.CARD_WIDTH, loc.CARD_HEIGHT))
-    cv.imwrite(card_dir + name, image_copy)
+    return image_copy
