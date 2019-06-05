@@ -5,10 +5,10 @@ import tensorflow as tf
 import cv2 as cv
 from data.constants import *
 
-
+"""
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
-
+"""
 
 result_path = RESULT_MODEL_RESULT_PATH
 model_name = MODEL_NAME
@@ -18,9 +18,12 @@ image_width = 32
 channels = 3
 classes = 11
 
+IMPORT_FLAG = False
 sess = tf.Session()
-saver = tf.train.import_meta_graph(result_path + model_name + ".meta")
-saver.restore(sess, tf.train.latest_checkpoint(result_path))
+if not IMPORT_FLAG:
+    IMPORT_FLAG = True
+    saver = tf.train.import_meta_graph(result_path + model_name + ".meta")
+    saver.restore(sess, tf.train.latest_checkpoint(result_path))
 
 
 def number_recognize(src_image):
