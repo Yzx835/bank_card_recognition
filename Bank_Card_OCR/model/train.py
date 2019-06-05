@@ -1,10 +1,5 @@
-"""
-import os
 import sys
 sys.path.append("../")
-o_path = os.getcwd()
-sys.path.append(o_path)
-"""
 import time
 from datetime import datetime
 import math
@@ -28,7 +23,7 @@ train_temp = [0]
 test_temp = [0]
 
 batch_size = 100
-epoch = 50
+epoch = 20
 num_batches = int((epoch * len(train_np)) / batch_size)
 
 

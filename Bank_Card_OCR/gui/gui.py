@@ -3,6 +3,7 @@ from tkinter import filedialog
 from tkinter import messagebox
 import re
 from PIL import Image, ImageTk
+import recognition.card_recognize as card_recognize
 
 # 定义常量
 FILE_PATTERN = r"^[A-Z]:/(.+/)*.+\.((jpg)|(jpeg)|(png))$"
@@ -50,7 +51,8 @@ def command_confirm_path():
 
 def command_anal():
     try:
-        card_number = "62284 8033 03464 40515"
+        # card_number = "62284 8033 03464 40515"
+        card_number = card_recognize.card_recognize()
         number.set("所识别的卡号为：" + card_number)
         label_number.grid(row=4, column=0, columnspan=4)
     except:

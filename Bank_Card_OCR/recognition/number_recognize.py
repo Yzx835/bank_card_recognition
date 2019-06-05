@@ -1,10 +1,6 @@
-"""
-import os
 import sys
+import os
 sys.path.append("../")
-o_path = os.getcwd()
-sys.path.append(o_path)
-"""
 import tensorflow as tf
 import cv2 as cv
 from data.constants import *

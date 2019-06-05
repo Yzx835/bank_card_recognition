@@ -1,20 +1,18 @@
-"""
-import os
 import sys
+import os
 sys.path.append("../")
-o_path = os.getcwd()
-sys.path.append(o_path)
-"""
 import cv2 as cv
 import recognition.number_recognize as number_recognize
 from data.constants import *
+import locate.card_locate as card_locate
+import locate.number_locate as number_locate
 
 
 src_path = DATA_LOCATE_RESULT_PATH
 
 
-def card_recognize(image_path):
-    image = cv.imread(image_path)
+def line_recognize(image):
+
     image = cv.resize(image, (0, 0), fx=48. / image.shape[0], fy=48. / image.shape[0])
 
     image_height, image_width = image.shape[0:2]
@@ -64,8 +62,15 @@ def card_recognize(image_path):
     return _output
 
 
+def card_recognize(image):
+    hough_image = card_locate.hough_lines(image, None)
+    line_image = number_locate.tophat_locate(hough_image, None)
+    return line_recognize(line_image)
+
+
 if __name__ == '__main__':
     file_list = os.listdir(src_path)
     for elm in file_list:
-        output = card_recognize(src_path + elm)
+        image = cv.imread(src_path + elm)
+        output = line_recognize(image)
         print(elm + " : " + output)
