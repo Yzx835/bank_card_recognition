@@ -5,10 +5,10 @@ import tensorflow as tf
 import cv2 as cv
 from data.constants import *
 
-"""
+
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
-"""
+
 
 result_path = RESULT_MODEL_RESULT_PATH
 model_name = MODEL_NAME

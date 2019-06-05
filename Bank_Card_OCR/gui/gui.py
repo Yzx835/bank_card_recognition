@@ -4,6 +4,8 @@ from tkinter import messagebox
 import re
 from PIL import Image, ImageTk
 import recognition.card_recognize as card_recognize
+import cv2 as cv
+import numpy as np
 
 # 定义常量
 FILE_PATTERN = r"^[A-Z]:/(.+/)*.+\.((jpg)|(jpeg)|(png))$"
@@ -50,13 +52,14 @@ def command_confirm_path():
 
 
 def command_anal():
-    try:
+    # try:
         # card_number = "62284 8033 03464 40515"
-        card_number = card_recognize.card_recognize()
+        image = cv.imdecode(np.fromfile(path.get(), dtype=np.uint8), -1)
+        card_number = card_recognize.card_recognize(image)
         number.set("所识别的卡号为：" + card_number)
         label_number.grid(row=4, column=0, columnspan=4)
-    except:
-        messagebox.showinfo("错误", "无法识别到卡号！")
+    # except:
+    #     messagebox.showinfo("错误", "无法识别到卡号！")
 
 
 def main():
@@ -94,3 +97,7 @@ def main():
 
     # 显示窗口
     window.mainloop()
+
+
+if __name__ == '__main__':
+    main()
